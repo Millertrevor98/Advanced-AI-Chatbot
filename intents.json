@@ -1,0 +1,92 @@
+[
+    {
+        "tag": "greeting",
+        "patterns": ["hello", "hi", "hey"],
+        "responses": ["Hello! How can I assist you?"]
+    },
+    {
+        "tag": "farewell",
+        "patterns": ["goodbye", "bye"],
+        "responses": ["Goodbye! Take care."]
+    },
+    {
+        "tag": "how_are_you",
+        "patterns": ["how are you", "how are you doing"],
+        "responses": ["I'm a chatbot. I don't have feelings, but thanks for asking!"]
+    },
+    {
+        "tag": "name",
+        "patterns": ["what is your name", "who are you"],
+        "responses": ["I'm a chatbot. Call me BroBot."]
+    },
+    {
+        "tag": "thanks",
+        "patterns": ["thank you", "thanks"],
+        "responses": ["You're welcome!", "No problem!"]
+    },
+    {
+        "tag": "quit",
+        "patterns": ["quit", "exit"],
+        "responses": ["Goodbye! Have a great day."]
+    },
+    {
+        "tag": "help",
+        "patterns": ["help"],
+        "responses": ["How can I help you?"]
+    },
+    {
+        "tag": "question1",
+        "patterns": ["what is love", "love sucks"],
+        "responses": ["Don't worry about it", "Yes it does focus on yourself king!"]
+    }, {
+        "tag": "question2",
+        "patterns": ["who is your creator?","who made you?"],
+        "responses": ["I was designed and manufactured by my master Trevor using Python"]
+    },
+    {
+        "tag": "question3",
+        "patterns": ["what is your purpose?"],
+        "responses": ["To serve my creator and perform any action I am programmed for."]
+    },
+    {
+        "tag": "question4",
+        "patterns": ["what is the capital of the united states?","what is the capital of the usa?"],
+        "responses": ["Washington D.C"]
+    },
+    {
+        "tag": "question5",
+        "patterns": ["how many states are in the united states?"],
+        "responses": ["50"]
+    },
+    {
+        "tag": "question6",
+        "patterns": ["is the matrix real?"],
+        "responses": ["No, although I highly advise you to not watch red pill content and focus on yourself!"]
+    },
+    {
+        "tag": "question7",
+        "patterns": ["how many continents are there?"],
+        "responses": ["7"]
+    },
+    {
+        "tag": "question7",
+        "patterns": ["whats 3*3*3"],
+        "responses": ["27"]
+    },
+    {
+        "tag": "question8",
+        "patterns": ["what is an npc?"],
+        "responses": [" A person with no ability to think for themselves. It's mostly a stereotype of Americans that are influenced by the media and politics."]
+    },
+    {
+        "tag": "news",
+        "patterns": ["what is the news? "],
+        "responses": [" "]
+    },
+
+{
+        "tag": "weather",
+        "patterns": ["what is the weather?"],
+        "responses": [" "]
+    }
+]
