@@ -1,6 +1,5 @@
 # Advanced-AI-Chatbot
 
-
 This Python chatbot is designed to provide answers to general knowledge questions, deliver weather information, and fetch the latest news updates. It utilizes various APIs and libraries to gather data and interact with users.
 
 ## Features
@@ -18,3 +17,4 @@ This Python chatbot is designed to provide answers to general knowledge question
   - [NLTK](https://www.nltk.org/): Natural Language Toolkit for NLP tasks.
   - [Requests](https://requests.readthedocs.io/): HTTP library for making API requests.
   - [python-dotenv](https://pypi.org/project/python-dotenv/): For loading environment variables from a `.env` file.
+<img width="645" alt="Advanced Chatbot SS" src="https://github.com/Millertrevor98/Advanced-AI-Chatbot/assets/78606684/6d9a48a8-e903-4e5e-89c0-888fe195d015">
