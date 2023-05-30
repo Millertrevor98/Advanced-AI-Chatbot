@@ -5,10 +5,12 @@ import json
 import random
 import requests
 from bs4 import BeautifulSoup
+import speech_recognition as sr
 
 
 # OpenWeatherMap API key
 API_KEY = "20980e620a4701dee0fafdf6c00e9122"
+
 
 def get_chatbot_response(user_input):
     if "news" in user_input.lower():
@@ -30,6 +32,7 @@ def get_chatbot_response(user_input):
                     return random.choice(intent["responses"])
     return "I'm sorry, I didn't understand that."
 
+
 def fetch_news():
     url = "https://www.bbc.com/news"
     response = requests.get(url)
@@ -43,6 +46,7 @@ def fetch_news():
         return news
     else:
         return None
+
 
 def fetch_weather():
     api_key = "20980e620a4701dee0fafdf6c00e9122"  # Place your OpenWeatherMap API key here
@@ -64,19 +68,23 @@ def fetch_weather():
     else:
         return None
 
-def send_message():
-    user_input = entry.get().strip()
-    entry.delete(0, tk.END)
 
-    if user_input.lower() == "quit":
-        messagebox.showinfo("ChatBot", "Goodbye!")
-        window.destroy()
-        return
 
-    response = get_chatbot_response(user_input)
-    chat_log.insert(tk.END, "You: " + user_input + "\n")
-    chat_log.insert(tk.END, "BroBot: " + response + "\n")
-    chat_log.see(tk.END)
+
+def listen_and_convert():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        audio = r.listen(source)
+    try:
+        user_input = r.recognize_google(audio)
+        entry.delete(0, tk.END)
+        entry.insert(tk.END, user_input)
+        handle_user_input()
+    except sr.UnknownValueError:
+        messagebox.showinfo("ChatBot", "Speech recognition could not understand audio.")
+    except sr.RequestError as e:
+        messagebox.showinfo("ChatBot", "Could not request results from Google Speech Recognition service; {0}".format(e))
+
 
 # Load intents from JSON file
 with open("intents.json") as file:
@@ -116,7 +124,6 @@ chat_log.configure(
 )
 chat_log.pack(side=tk.LEFT, fill=tk.BOTH)
 
-
 # Create a scroll bar for the chat log
 scrollbar = tk.Scrollbar(chat_frame)
 scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
@@ -125,26 +132,47 @@ scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 chat_log.config(yscrollcommand=scrollbar.set)
 scrollbar.config(command=chat_log.yview)
 
-# Create a send button
-send_button = tk.Button(window, text="Send", font=("Arial", 17), bg="#4285F4", fg="#000000", bd=0, command=send_message)
-send_button.pack(fill=tk.BOTH, padx=10, pady=10)
+
+# Create a listen button
+listen_button = tk.Button(window, text="Listen", font=("Arial", 17), bg="#4285F4", fg="#000000", bd=0, command=listen_and_convert)
+listen_button.pack(fill=tk.BOTH, padx=10, pady=10)
 
 def clear_placeholder(event):
     if entry.get() == placeholder_text:
         entry.delete(0, tk.END)
+        entry.configure(fg="#ffffff")  # Set the text color to white
+def handle_user_input(event=None):
+    user_input = entry.get().strip()
+    entry.delete(0, tk.END)
+
+    if user_input.lower() == "quit":
+        messagebox.showinfo("ChatBot", "Goodbye!")
+        window.destroy()
+        return
+
+    response = get_chatbot_response(user_input)
+    chat_log.insert(tk.END, "You: " + user_input + "\n")
+    chat_log.insert(tk.END, "BroBot: " + response + "\n")
+    chat_log.see(tk.END)
+
+
+
+# Create a send button
+send_button = tk.Button(window, text="Send", font=("Arial", 17), bg="#4285F4", fg="#000000", bd=0, command=handle_user_input)
+send_button.pack(fill=tk.BOTH, padx=10, pady=10)
 
 # Create an entry widget for user input
 placeholder_text = "Type your question here"
-entry = tk.Entry(window, font=("Arial", 17), bg="#203A43", bd=0)
-entry.configure(
-    fg="#ffffff"  # Set the text color
-)
+entry = tk.Entry(window, font=("Arial", 17), bg="#203A43", bd=0, insertbackground="white")
+entry.configure(fg="#808080")  # Set the placeholder text color to gray
 entry.insert(0, placeholder_text)
 entry.bind("<FocusIn>", clear_placeholder)
+entry.bind("<Return>", handle_user_input)  # Bind the <Return> event to the handle_user_input function
 entry.pack(fill=tk.BOTH, padx=10, pady=10)
-
-
 # Set focus on the entry widget by default
 entry.focus_set()
 
 window.mainloop()
+
+
+
