@@ -69,7 +69,7 @@
         "responses": ["7"]
     },
     {
-        "tag": "question7",
+        "tag": "question8",
         "patterns": ["whats 3*3*3"],
         "responses": ["27"]
     },
@@ -88,5 +88,11 @@
         "tag": "weather",
         "patterns": ["what is the weather?"],
         "responses": [" "]
+    },
+
+    {
+        "tag": "game consoles",
+        "patterns": ["PS or Xbox?"],
+        "responses": [" Playstation always #1"]
     }
 ]
