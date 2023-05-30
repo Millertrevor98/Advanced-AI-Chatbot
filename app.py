@@ -9,7 +9,7 @@ import speech_recognition as sr
 
 
 # OpenWeatherMap API key
-API_KEY = "20980e620a4701dee0fafdf6c00e9122"
+API_KEY = "YOUR API KEY GOES HERE"
 
 
 def get_chatbot_response(user_input):
