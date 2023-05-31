@@ -69,8 +69,6 @@ def fetch_weather():
         return None
 
 
-
-
 def listen_and_convert():
     r = sr.Recognizer()
     with sr.Microphone() as source:
@@ -90,9 +88,32 @@ def listen_and_convert():
 with open("intents.json") as file:
     intents = json.load(file)
 
+
+def clear_placeholder(event):
+    if entry.get() == placeholder_text:
+        entry.delete(0, tk.END)
+        entry.configure(fg="#ffffff")  # Set the text color to white
+
+
+def handle_user_input(event=None):
+    user_input = entry.get().strip()
+    entry.delete(0, tk.END)
+
+    if user_input.lower() == "quit":
+        messagebox.showinfo("ChatBot", "Goodbye!")
+        window.destroy()
+        return
+
+    response = get_chatbot_response(user_input)
+    chat_log.insert(tk.END, "You: " + user_input + "\n")
+    chat_log.insert(tk.END, "BroBot: " + response + "\n")
+    chat_log.see(tk.END)
+
+
 window = tk.Tk()
-window.title("BroBot")
-window.iconbitmap("favicon.ico")
+window.title("Enigma")
+window.iconphoto(True, tk.PhotoImage(file="logo.png"))  # Replace 'icon.png' with your icon image file
+
 
 # Set window size and position
 window.geometry("650x500")
@@ -132,30 +153,9 @@ scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 chat_log.config(yscrollcommand=scrollbar.set)
 scrollbar.config(command=chat_log.yview)
 
-
 # Create a listen button
 listen_button = tk.Button(window, text="Listen", font=("Arial", 17), bg="#4285F4", fg="#000000", bd=0, command=listen_and_convert)
 listen_button.pack(fill=tk.BOTH, padx=10, pady=10)
-
-def clear_placeholder(event):
-    if entry.get() == placeholder_text:
-        entry.delete(0, tk.END)
-        entry.configure(fg="#ffffff")  # Set the text color to white
-def handle_user_input(event=None):
-    user_input = entry.get().strip()
-    entry.delete(0, tk.END)
-
-    if user_input.lower() == "quit":
-        messagebox.showinfo("ChatBot", "Goodbye!")
-        window.destroy()
-        return
-
-    response = get_chatbot_response(user_input)
-    chat_log.insert(tk.END, "You: " + user_input + "\n")
-    chat_log.insert(tk.END, "BroBot: " + response + "\n")
-    chat_log.see(tk.END)
-
-
 
 # Create a send button
 send_button = tk.Button(window, text="Send", font=("Arial", 17), bg="#4285F4", fg="#000000", bd=0, command=handle_user_input)
@@ -173,6 +173,3 @@ entry.pack(fill=tk.BOTH, padx=10, pady=10)
 entry.focus_set()
 
 window.mainloop()
-
-
-
