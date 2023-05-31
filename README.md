@@ -10,6 +10,8 @@ This Python chatbot is designed to provide answers to general knowledge question
 
 3. News Updates: The chatbot can retrieve the latest news articles and headlines from various news sources using a news API.
 
+4. Speech Recognition: The chatbot will be able to answer your questions via voice prompt when you click the listen button.
+
 ## Requirements
 
 - Python 3.x
