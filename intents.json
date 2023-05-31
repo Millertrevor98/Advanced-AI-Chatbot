@@ -17,7 +17,7 @@
     {
         "tag": "name",
         "patterns": ["what is your name", "who are you"],
-        "responses": ["I'm a chatbot. Call me BroBot."]
+        "responses": ["I'm a chatbot. Call me Enigma."]
     },
     {
         "tag": "thanks",
@@ -45,7 +45,7 @@
     },
     {
         "tag": "purpose",
-        "patterns": ["what is your purpose?"],
+        "patterns": ["what is your purpose?","purpose"],
         "responses": ["To serve my creator and perform any action I am programmed for."]
     },
     {
@@ -54,28 +54,28 @@
         "responses": ["Washington D.C"]
     },
     {
-        "tag": "states",
-        "patterns": ["how many states are in the united states?"],
-        "responses": ["50"]
+        "tag": "Geography",
+        "patterns": ["how many states are in the united states"],
+        "responses": [" There are 50 states"]
     },
     {
         "tag": "matrix",
-        "patterns": ["is the matrix real?"],
+        "patterns": ["is the matrix real"],
         "responses": ["No, although I highly advise you to not watch red pill content and focus on yourself!"]
     },
     {
         "tag": "continents",
-        "patterns": ["how many continents are there?"],
+        "patterns": ["how many continents are there"],
         "responses": ["7"]
     },
     {
         "tag": "3*3*3",
-        "patterns": ["whats 3*3*3"],
+        "patterns": ["what is 3 * 3 * 3", "whats 3 * 3 * 3"],
         "responses": ["27"]
     },
     {
         "tag": "question8",
-        "patterns": ["what is an npc?"],
+        "patterns": ["what is an npc","npcs"],
         "responses": [" A person with no ability to think for themselves. It's mostly a stereotype of Americans that are influenced by the media and politics."]
     },
     {
@@ -92,7 +92,17 @@
 
     {
         "tag": "game consoles",
-        "patterns": ["PS or Xbox?"],
+        "patterns": ["PS or Xbox"],
         "responses": [" Playstation always #1"]
+    },
+    {
+        "tag": "worst states",
+        "patterns": ["worst states","what are the worst states"],
+        "responses": [" Here are the top 5 worst states: #1 Mississippi, #2 Arkansas, #3 Louisiana, #4 West Virginia, #5 South Carolina"]
+    },
+    {
+        "tag": "best states",
+        "patterns": ["best states","what are the best states states"],
+        "responses": [" Here are the top 5 best states: #1 New Hampshire, #2 Colorado, #3 Massachussets, #4 Minnesota, #5 Vermont"]
     }
 ]
