@@ -19,4 +19,4 @@ This Python chatbot is designed to provide answers to general knowledge question
   - [NLTK](https://www.nltk.org/): Natural Language Toolkit for NLP tasks.
   - [Requests](https://requests.readthedocs.io/): HTTP library for making API requests.
   - [python-dotenv](https://pypi.org/project/python-dotenv/): For loading environment variables from a `.env` file.
-<img width="645" alt="Advanced Chatbot SS" src="https://github.com/Millertrevor98/Advanced-AI-Chatbot/assets/78606684/6d9a48a8-e903-4e5e-89c0-888fe195d015">
+<img width="648" alt="Enigma SS" src="https://github.com/Millertrevor98/Enigma-Advanced-AI-Chatbot/assets/78606684/873e0a23-480d-402b-91f5-21e17f83bfa8">
